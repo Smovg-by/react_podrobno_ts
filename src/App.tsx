@@ -5,9 +5,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      This is react component
+      <AppTitle/>
       <Rating/>
       <Accordion/>
+      <Rating/>
     </div>
   );
 }
@@ -25,19 +26,37 @@ function Rating() {
 function Accordion() {
   return (
     <div>
-      <h3>H3 title</h3>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
+      <AccordionTitle/>
+      <AccordionBody/>
     </div>
+  )
+}
+
+function AccordionTitle() {
+  return (
+    <h3>Menu</h3>
+  )
+}
+
+function AccordionBody() {
+  return (
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
   )
 }
 
 function Star() {
   return (
     <div>star</div>
+  )
+}
+
+function AppTitle() {
+  return (
+    <>This is app component</>
   )
 }
 
