@@ -1,26 +1,31 @@
 import React from 'react';
 import './App.css';
-import {Rating2} from './components/rating/Rating2';
-import {Accordion2} from './components/accordion/Accordion2';
+import {Rating} from './components/rating/Rating';
+import {Accordion} from './components/accordion/Accordion';
 
+type PageTitlePropsType ={
+  title: string
+}
 
 // function declaration
 function App() {
   return (
     <div className="App">
-      <AppTitle/>
+      <PageTitle title={"This is app component"}/>
+      <PageTitle title={"My friends"}/>
       Article 1
-      <Rating2 value={2}/>
-      <Accordion2 title={"Menu"}/>
+      <Rating value={2}/>
+      <Accordion title={"Menu"} collapsed={true}/>
+      <Accordion title={"Users"} collapsed={false}/>
       Article 2
-      <Rating2 value={4}/>
+      <Rating value={4}/>
     </div>
   );
 }
 
-function AppTitle() {
+function PageTitle(props:PageTitlePropsType) {
   return (
-    <div><b>This is app component</b></div>
+    <div><b>{props.title}</b></div>
   )
 }
 
