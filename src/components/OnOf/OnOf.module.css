@@ -12,21 +12,13 @@
     flex-shrink: 0;
     width: 60px;
     height: 30px;
-    color: black;
-    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
 }
 
 .circle {
-    height: 40px;
-    width: 40px;
-    border-radius: 50px;
-    background-color: greenyellow;
-}
-
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: green;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid black;
 }

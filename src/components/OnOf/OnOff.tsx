@@ -1,35 +1,37 @@
-import classes from './OnOf.module.css'
+import classes from './OnOf.module.css';
+import {useState} from 'react';
 
-type OnOffPropsType = {
-  value: string
-}
+// type OnOffPropsType = {
+//   value: string
+// }
 
-export function OnOff(props: OnOffPropsType) {
-  if (props.value === 'on') {
-    return (
-      <div className={classes.wrapper}>
-        <button
-          className={classes.button + ' ' + classes.green}>On
-        </button>
-        <button
-          className={classes.button}>Off
-        </button>
-        <div
-          className={classes.circle + ' ' + classes.green}>+</div>
-      </div>
-    )
-  } else {
-    return (
-      <div className={classes.wrapper}>
-        <button
-          className={classes.button}>On
-        </button>
-        <button
-          className={classes.button + ' ' + classes.red}>Off
-        </button>
-        <div
-          className={classes.circle + ' ' + classes.red}>+</div>
-      </div>
-    )
+export function OnOff() {
+
+  let [on, setOn] = useState(false);
+
+  const onStyle = {
+    backgroundColor: on ? 'green' : 'white'
   }
+  const offStyle = {
+    backgroundColor: !on ? 'red' : 'white'
+  }
+  const indicatorStyle = {
+    backgroundColor: !on ? 'red' : 'green'
+  }
+
+  return (
+    <div className={classes.wrapper}>
+      <div onClick={() => {
+        setOn(true)
+      }} style={onStyle} className={classes.button}>On
+      </div>
+      <div onClick={() => {
+        setOn(false)
+      }} style={offStyle} className={classes.button}>Off
+      </div>
+      <div style={indicatorStyle}
+           className={classes.circle}>+
+      </div>
+    </div>
+  )
 }
