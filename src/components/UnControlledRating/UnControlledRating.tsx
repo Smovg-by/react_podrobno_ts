@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 
 type StarPropsType = {
   selected: boolean
@@ -6,44 +6,32 @@ type StarPropsType = {
 
 export function UnControlledRating() {
 
-
-  let [selected1, setSelected1] = useState(false)
-  let [selected2, setSelected2] = useState(false)
-  let [selected3, setSelected3] = useState(false)
-  let [selected4, setSelected4] = useState(false)
-  let [selected5, setSelected5] = useState(false)
+  let [value, setValue] = useState(0)
 
   return (
 
-    <div>
-      <Star selected={selected1}/>
-      <button onClick={() => setSelected1(!selected1)}>1
-      </button>
-      <Star selected={selected2}/>
-      <button onClick={() => setSelected2(!selected2)}>2
-      </button>
-      <Star selected={selected3}/>
-      <button onClick={() => setSelected3(!selected3)}>3
-      </button>
-      <Star selected={selected4}/>
-      <button onClick={() => setSelected4(!selected4)}>4
-      </button>
-      <Star selected={selected5}/>
-      <button onClick={() => setSelected5(!selected5)}>5
-      </button>
+    <div><h4>Stars choose(uncontrolled component)</h4>
+      <Star selected={value > 0}/>
+      <button onClick={() => setValue(1)}>1</button>
+      <Star selected={value > 1}/>
+      <button onClick={() => setValue(2)}>1</button>
+      <Star selected={value > 2}/>
+      <button onClick={() => setValue(3)}>1</button>
+      <Star selected={value > 3}/>
+      <button onClick={() => setValue(4)}>1</button>
+      <Star selected={value > 4}/>
+      <button onClick={() => setValue(5)}>1</button>
     </div>
   )
 }
 
 
 function Star(props: StarPropsType) {
-
-  if (props.selected) {
-    return (<span><b>star </b></span>)
-  } else {
-    return (
-      <span>star </span>
-    )
-  }
+  return (
+    props.selected ? (
+      <span><b>star </b></span>
+    ) : (
+      <span>star </span>)
+  )
 }
 

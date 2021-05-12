@@ -11,7 +11,7 @@ type StarPropsType = {
 export function Rating(props: RatingPropsType) {
 
   return (
-    <div>
+    <div><h4>Stars(controlled components with props)</h4>
       <Star selected={props.value > 0}/>
       <Star selected={props.value > 1}/>
       <Star selected={props.value > 2}/>
@@ -22,12 +22,11 @@ export function Rating(props: RatingPropsType) {
 
 
 function Star(props: StarPropsType) {
-  if (props.selected) {
-    return (<span><b>star </b></span>)
-  } else {
-    return (
-      <span>star </span>
-    )
-  }
+  return (
+    props.selected ? (
+      <span><b>star</b></span>
+    ) : (
+      <span>star </span>)
+  )
 }
 

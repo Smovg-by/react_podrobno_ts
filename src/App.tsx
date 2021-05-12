@@ -14,22 +14,24 @@ type PageTitlePropsType = {
 function App() {
   return (
     <div className="App">
-      <PageTitle title={'This is app component'}/>
-      <PageTitle title={'My friends'}/>
-      Article 1
-      <Rating value={2}/>
-      <Accordion title={'Menu'} collapsed={true}/>
-      <Accordion title={'Users'} collapsed={false}/>
-      Article 2
-      <Rating value={1}/>
-      <Rating value={2}/>
-      <Rating value={3}/>
-      <Rating value={4}/>
-      <Rating value={5}/>
+      {/*<PageTitle title={'This is app component'}/>*/}
+      {/*<PageTitle title={'My friends'}/>*/}
+      {/*Article 1*/}
+      {/*<Rating value={2}/>*/}
+      {/*<Accordion title={'Menu'} collapsed={true}/>*/}
+      {/*<Accordion title={'Users'} collapsed={false}/>*/}
+      {/*Article 2*/}
+      {/*<Rating value={1}/>*/}
+      {/*<Rating value={2}/>*/}
+      {/*<Rating value={3}/>*/}
+      {/*<Rating value={4}/>*/}
+      {/*<Rating value={5}/>*/}
       <OnOff/>
       <OnOff/>
       <UnControlledAccordion title={ 'UnControlledAccordion'}/>
+      <Accordion title={"Menu"} collapsed={false}/>
       <UnControlledRating/>
+      <Rating value={3}/>
     </div>
   );
 }

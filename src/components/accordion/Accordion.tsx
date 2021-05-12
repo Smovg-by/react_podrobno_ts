@@ -20,7 +20,7 @@ type AccordionTitlePropsType = {
 
 function AccordionTitle(props: AccordionTitlePropsType) {
   return (
-    <h3>{props.titleValue}</h3>
+    <h4>{props.titleValue}</h4>
   )
 }
 
