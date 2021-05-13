@@ -5,22 +5,20 @@ import {
   RatingValueType
 } from './components/rating/Rating';
 import {Accordion} from './components/accordion/Accordion';
-import {OnOff} from './components/OnOf/OnOff';
+import {UncontrolledOnOff} from './components/UncontrolledOnOf/UncontrolledOnOff';
 import {UnControlledAccordion} from './components/UnControlledAccordion/UnControlledAccordion';
 import {UnControlledRating} from './components/UnControlledRating/UnControlledRating';
+import {OnOff} from './components/OnOff/OnOff';
 
-// type PageTitlePropsType = {
-//   title: string
-// }
-
-// function declaration
 function App() {
 
   const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+  const [onOffToggle, setonOffToggle] = useState<boolean>(true)
 
   return (
     <div className="App">
+      <OnOff on={onOffToggle} onClick={setonOffToggle}/>
       {/*<PageTitle title={'This is app component'}/>*/}
       {/*<PageTitle title={'My friends'}/>*/}
       {/*Article 1*/}
@@ -33,10 +31,11 @@ function App() {
       {/*<Rating value={1}/>*/}
       {/*<Rating value={2}/>*/}
       {/*<Rating value={3}/>*/}
+
       {/*<Rating value={4}/>*/}
       {/*<Rating value={5}/>*/}
-      <OnOff/>
-      <OnOff/>
+      <UncontrolledOnOff/>
+      <UncontrolledOnOff/>
       <UnControlledAccordion
         title={'UnControlledAccordion'}/>
       {/*<Accordion title={'Menu'} collapsed={false}/>*/}

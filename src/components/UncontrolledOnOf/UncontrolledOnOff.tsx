@@ -1,11 +1,11 @@
-import classes from './OnOf.module.css';
+import classes from './UncontrolledOnOf.module.css';
 import {useState} from 'react';
 
 // type OnOffPropsType = {
 //   value: string
 // }
 
-export function OnOff() {
+export function UncontrolledOnOff() {
 
   let [on, setOn] = useState(false);
 
