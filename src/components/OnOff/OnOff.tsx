@@ -1,7 +1,7 @@
 import classes from './OnOf.module.css';
 
 
-type OnOffPropsType = {
+export type OnOffPropsType = {
   on: boolean
   onClick: (on:boolean) => void
 }
