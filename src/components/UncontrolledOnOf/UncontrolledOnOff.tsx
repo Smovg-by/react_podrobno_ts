@@ -1,13 +1,13 @@
 import classes from './UncontrolledOnOf.module.css';
 import {useState} from 'react';
 
-// type OnOffPropsType = {
-//   value: string
-// }
+export type OnOffPropsType = {
+  defaultOn?: boolean
+}
 
-export function UncontrolledOnOff() {
+export function UncontrolledOnOff(props: OnOffPropsType) {
 
-  let [on, setOn] = useState(false);
+  let [on, setOn] = useState(props.defaultOn? props.defaultOn : false );
 
   const onStyle = {
     backgroundColor: on ? 'green' : 'white'

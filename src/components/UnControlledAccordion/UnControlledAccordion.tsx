@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 type AccordionPropsType = {
   title: string
   // onClick?: (value: boolean) => void
+  defaultOn?: boolean
+
 }
 
 export function UnControlledAccordion (props: AccordionPropsType) {
-  let [collapsed, setCollapsed] = useState(true)
+  let [collapsed, setCollapsed] = useState(props.defaultOn? props.defaultOn : false)
 
   return (
     <div>
