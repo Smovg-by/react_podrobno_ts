@@ -6,7 +6,7 @@ import { UncontrolledOnOff } from './components/UncontrolledOnOf/UncontrolledOnO
 import { UnControlledAccordion } from './components/UnControlledAccordion/UnControlledAccordion'
 // import { UnControlledRating } from './components/UnControlledRating/UnControlledRating'
 import { OnOff } from './components/OnOff/OnOff'
-import { ItemType, Select } from './components/Select/Select'
+import { ItemType, MySelect } from './components/MySelect/MySelect'
 
 function App () {
   const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -22,7 +22,7 @@ function App () {
   return (
     <div className='App'>
       <OnOff on={onOffToggle} onClick={setonOffToggle} />
-      <Select selectItemsArray={selectItemsArray}/>
+      <MySelect selectItemsArray={selectItemsArray}/>
       {/*<PageTitle title={'This is app component'}/>*/}
       {/*<PageTitle title={'My friends'}/>*/}
       {/*Article 1*/}

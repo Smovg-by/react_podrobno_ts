@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import style from './Select.module.css'
+import style from './MySelect.module.css'
 
 export type ItemType = {
   title: string
@@ -32,7 +32,7 @@ function DropMenu (props: DropMenuPropsType) {
   )
 }
 
-export function Select (props: SelectPropsType) {
+export function MySelect (props: SelectPropsType) {
   let [collapsed, setCollapsed] = useState(true)
   let [titleName, setTitleName] = useState(props.selectItemsArray[0].title)
 
