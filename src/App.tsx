@@ -37,7 +37,7 @@ function App () {
       <UncontrolledOnOff />
       <UnControlledAccordion title={'UnControlledAccordion'} />
       {/*<Accordion title={'Menu'} collapsed={false}/>*/}
-      <UnControlledRating />
+      {/* <UnControlledRating /> */}
       <Rating value={ratingValue} onClick={setRatingValue} />
     </div>
   )

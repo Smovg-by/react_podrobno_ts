@@ -24,6 +24,7 @@ export type AccordionPropsType = {
 export function Accordion (props: AccordionPropsType) {
   return (
     <div>
+      <hr/>
       Accordion controlled component
       <AccordionTitle
         titleValue={props.title}
@@ -32,6 +33,7 @@ export function Accordion (props: AccordionPropsType) {
         color={props.color}
       />
       {!props.accordionCollapsed && <AccordionBody />}
+      <hr/>
     </div>
   )
 }
