@@ -4,17 +4,25 @@ import { Rating, RatingValueType } from './components/rating/Rating'
 import { Accordion } from './components/accordion/Accordion'
 import { UncontrolledOnOff } from './components/UncontrolledOnOf/UncontrolledOnOff'
 import { UnControlledAccordion } from './components/UnControlledAccordion/UnControlledAccordion'
-import { UnControlledRating } from './components/UnControlledRating/UnControlledRating'
+// import { UnControlledRating } from './components/UnControlledRating/UnControlledRating'
 import { OnOff } from './components/OnOff/OnOff'
+import { ItemType, Select } from './components/Select/Select'
 
 function App () {
   const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
   const [onOffToggle, setonOffToggle] = useState<boolean>(true)
 
+  const selectItemsArray: Array<ItemType> = [
+    {title: 'First option', value: 1},
+    {title: 'Second option', value: 2},
+    {title: 'Third option', value: 3},
+  ]
+
   return (
     <div className='App'>
       <OnOff on={onOffToggle} onClick={setonOffToggle} />
+      <Select selectItemsArray={selectItemsArray}/>
       {/*<PageTitle title={'This is app component'}/>*/}
       {/*<PageTitle title={'My friends'}/>*/}
       {/*Article 1*/}

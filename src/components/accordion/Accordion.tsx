@@ -2,29 +2,36 @@ import { AnyARecord } from 'dns'
 import React from 'react'
 
 export type AccordionPropsType = {
-  /**
-   * Title, that will be shown in a new component instance
-   */
   title: string
-  /**
-   * Value determines is Accordion collapsed or not
-   */
   accordionCollapsed: boolean
-  /**
-   * Callback called when any item is clicked
-   */
   onClick: (value: boolean) => void
-  /**
-   * The color of component's text
-   */
   color?: string
-
+  // items: string[]
 }
 
+type ItemType = {
+  title: string
+  value: any
+}
+
+const items: ItemType[] = [
+  {title:'Dima', value: 1},
+  {title:'Stan', value: 2},
+  {title:'John', value: 3},
+  ]
+  function onClickCallBack(value: any) {
+    console.log('click  ' + value);
+
+  }
+
+
 export function Accordion (props: AccordionPropsType) {
+
+
+
   return (
     <div>
-      <hr/>
+      <hr />
       Accordion controlled component
       <AccordionTitle
         titleValue={props.title}
@@ -32,8 +39,8 @@ export function Accordion (props: AccordionPropsType) {
         accordionCollapsed={props.accordionCollapsed}
         color={props.color}
       />
-      {!props.accordionCollapsed && <AccordionBody />}
-      <hr/>
+      {!props.accordionCollapsed && <AccordionBody items={items} onClickCallBack={onClickCallBack}/>}
+      <hr />
     </div>
   )
 }
@@ -43,13 +50,13 @@ type AccordionTitlePropsType = {
   onClick: (value: boolean) => void
   accordionCollapsed: boolean
   color?: string
+
 }
 
 function AccordionTitle (props: AccordionTitlePropsType) {
-
-    return (
+  return (
     <h4
-      style={{color: props.color}}
+      style={{ color: props.color }}
       onClick={() => props.onClick(!props.accordionCollapsed)}
     >
       {props.titleValue}
@@ -57,12 +64,17 @@ function AccordionTitle (props: AccordionTitlePropsType) {
   )
 }
 
-function AccordionBody () {
+export type AccordionBodyPropsType = {
+  items: ItemType[]
+  onClickCallBack: (value: any) => void
+}
+
+function AccordionBody (props: AccordionBodyPropsType) {
   return (
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
+      {props.items.map((item, index) => (
+        <li key={index} onClick={()=>{props.onClickCallBack(item.value)}}>{item.title}</li>
+      ))}
     </ul>
   )
 }
