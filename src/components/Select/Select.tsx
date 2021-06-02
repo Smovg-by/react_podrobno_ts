@@ -1,5 +1,5 @@
-import { KeyboardEvent, useEffect, useState } from 'react'
-import { isPropertySignature, isTemplateExpression } from 'typescript'
+import { KeyboardEvent, useEffect, useReducer, useState } from 'react'
+import { initialState, reducer } from './reducer'
 import style from './Select.module.css'
 
 export type ItemType = {
@@ -16,7 +16,9 @@ type SelectPropsType = {
 export function Select (props: SelectPropsType) {
   //BLL
   //
-  const [active, setActive] = useState<boolean>(false)
+  // const [active, setActive] = useState<boolean>(false)
+  const [active, dispatch] = useReducer(reducer, initialState)
+
   let [hoveredElementValue, setHoverElementValue] = useState<any>(props.value)
 
   const selectedItem = props.items.find(i => i.value === props.value)
@@ -27,7 +29,8 @@ export function Select (props: SelectPropsType) {
   }, [props.value])
 
   const toggleItems = () => {
-    setActive(!active)
+    // setActive(!active)
+    dispatch({ type: 'SET_ACTIVE', payload: false })
   }
 
   const onItemClick = (value: any) => {
@@ -55,7 +58,8 @@ export function Select (props: SelectPropsType) {
     }
     // Реакция на Escape и Enter
     if (e.key === 'Enter' || e.key === 'Escape') {
-      setActive(false)
+      // setActive(false)
+      dispatch({ type: 'SET_ACTIVE', payload: false })
     }
   }
 
