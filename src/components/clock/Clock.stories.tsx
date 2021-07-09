@@ -1,3 +1,4 @@
+import { Analog } from "./Analog";
 import { Clock } from "./Clock";
 
 export default {
@@ -7,4 +8,7 @@ export default {
 
 export const BaseExample = () => {
   return <Clock />
+}
+export const AnalogClock = () => {
+  return <Analog />
 }
