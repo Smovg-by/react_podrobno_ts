@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default {
   title: 'useEffect demo'
 }
-
+//
+//
+//
 export const Example1 = () => {
 
   let [fake, setFake] = useState(1)
@@ -25,6 +27,9 @@ export const Example1 = () => {
     </>
   )
 }
+//
+//
+//
 export const SetTimeoutExample = () => {
 
   let [fake, setFake] = useState(1)
@@ -49,6 +54,10 @@ export const SetTimeoutExample = () => {
     </>
   )
 }
+
+//
+//
+//
 export const ClockExample = () => {
   let date = new Date
 
@@ -65,5 +74,54 @@ export const ClockExample = () => {
 
   return (
     <>{clock}</>
+  )
+}
+//
+//
+//
+export const ResetEffectExample = () => {
+  let [counter, setCounter] = useState(1)
+  console.log('ResetEffectExample rendered...' + counter);
+
+  useEffect(() => {
+    console.log('useEffect occured...' + counter);
+    return () => {
+      console.log('RESET EFFECT...' + counter);
+    }
+  }, [counter])
+
+  return (
+    <>
+      Counter: {counter}
+      <button onClick={() => { setCounter(counter + 1) }}>Increment</button>
+    </>
+  )
+}
+//
+//
+//
+export const KeysTrackerExample = () => {
+  let [text, setText] = useState('')
+
+  console.log('ResetEffectExample rendered...' + text);
+
+  useEffect(() => {
+
+    const handler = (e: KeyboardEvent) => {
+      console.log(e.key);
+      setText(text + e.key)
+    }
+
+    window.addEventListener('keypress', handler)
+
+    return () => {
+      window.removeEventListener('keypress', handler)
+    }
+  }, [text])
+
+  return (
+    <>
+      Typed text: {text}
+    </>
   )
 }
