@@ -39,10 +39,10 @@ export const SetTimeoutExample = () => {
 
   useEffect(() => {
     console.log('use useEffect');
-    setInterval(() => {
-
+    const intervalId = setInterval(() => {
       setCounter((state) => state + 1)
     }, 1000)
+    return () => { clearInterval(intervalId) }
   }, []) // пустой массив зависимостей - отрисуется только один раз
 
   return (
@@ -64,12 +64,14 @@ export const ClockExample = () => {
   let [clock, setClock] = useState('')
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
+      console.log('tick ClockExample');
       setClock((state) => {
         date = new Date
         return state = `Current time is...${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
       })
     }, 1000)
+    return () => { clearInterval(intervalId) }
   }, []) // пустой массив зависимостей - отрисуется только один раз
 
   return (
